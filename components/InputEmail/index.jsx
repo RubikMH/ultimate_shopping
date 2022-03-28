@@ -1,11 +1,25 @@
 import React from 'react'
 import { css } from '@emotion/css'
-import { useTheme } from '@emotion/react'
 import Input from '../Input'
 
-const InputText = ({ placeholder, style }) => {
-  const theme = useTheme()
-  return <Input type={`email`} placeholder={placeholder} style={style} />
+const InputText = (props) => {
+  return (
+    <div
+      className={css`
+        width: 100%;
+        direction: ltr;
+        &::placeholder {
+          direction: rtl;
+          color: red;
+        }
+        input::placeholder {
+          direction: rtl;
+        }
+      `}
+    >
+      <Input type="email" {...props} />
+    </div>
+  )
 }
 
 export default InputText

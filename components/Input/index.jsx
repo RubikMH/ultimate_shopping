@@ -2,21 +2,35 @@ import React from 'react'
 import { css } from '@emotion/css'
 import { useTheme } from '@emotion/react'
 
-const Input = ({ type, placeholder, style, required }) => {
+const Input = ({ type, placeholder, required, onChange }) => {
   const theme = useTheme()
+  const handleOnChange = (event) => {
+    onChange(event.target.value)
+  }
   return (
-    <input
-      type={type}
-      placeholder={placeholder}
+    <div
       className={css`
-        box-shadow: ${theme.boxShadow.light};
-        border-radius: ${theme.borderRadius[1]};
         width: 100%;
-        padding: 0.3rem;
-        border: none;
+        direction: ltr;
+        input::placeholder {
+          direction: rtl;
+        }
       `}
-      required={required}
-    />
+    >
+      <input
+        onChange={handleOnChange}
+        type={type}
+        placeholder={placeholder}
+        className={css`
+          box-shadow: ${theme.boxShadow.light};
+          border-radius: ${theme.borderRadius[1]};
+          width: 100%;
+          padding: 0.3rem;
+          border: none;
+        `}
+        required={required}
+      />
+    </div>
   )
 }
 

@@ -1,13 +1,24 @@
 import Head from 'next/head'
 import { css, cx } from '@emotion/css'
 import LayoutAuth from '../../Containers/LayoutAuth/LayoutAuth'
-import Input from '../../components/Input'
+import InputEmail from '../../components/InputEmail'
+
 import Button from '../../components/Button'
+import { useState, useEffect } from 'react'
+import InputPassword from '../../components/InputPassword'
 
 const Home = () => {
+  const [formValue, setFormValue] = useState({})
+  const handleOnChange = (name, value) => {
+    setFormValue({
+      ...formValue,
+      [name]: value,
+    })
+  }
   const handelSubmit = (event) => {
     if (event) event.preventDefault()
     console.log('Submited')
+    console.log('formValue', formValue)
   }
 
   return (
@@ -23,11 +34,19 @@ const Home = () => {
             width: 300px;
           `}
         />
-        <form onSubmit={handelSubmit}>
-          <Input type={`email`} placeholder={`ایمیل خود را وارد کنید ... `} />
-          <Input
-            type={`password`}
+        <form
+          onSubmit={handelSubmit}
+          className={css`
+            width: 20%;
+          `}
+        >
+          <InputEmail
+            placeholder={`ایمیل خود را وارد کنید ... `}
+            onChange={(value) => handleOnChange('email', value)}
+          />
+          <InputPassword
             placeholder={`رمز عبوره خود را وارد کنید ...`}
+            onChange={(value) => handleOnChange('password', value)}
           />
           <Button type="submit"> ورود </Button>
         </form>

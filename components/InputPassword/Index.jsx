@@ -1,11 +1,22 @@
 import React from 'react'
 import { css } from '@emotion/css'
-import { useTheme } from '@emotion/react'
+
 import Input from '../Input'
 
-const InputPassword = ({ placeholder, style }) => {
-  const theme = useTheme()
-  return <Input type={`password`} placeholder={placeholder} style={style} />
+const InputPassword = (props) => {
+  return (
+    <div
+      className={css`
+        width: 100%;
+        direction: ltr;
+        input::placeholder {
+          direction: rtl;
+        }
+      `}
+    >
+      <Input type="password" {...props} />
+    </div>
+  )
 }
 
 export default InputPassword
