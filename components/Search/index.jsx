@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { css } from '@emotion/css'
 import Button from '../Button'
 import { useTheme } from '@emotion/react'
-import Input from '../Input'
+import InputSearch from '../InputSearch'
 
 const Search = () => {
   const theme = useTheme()
@@ -22,9 +22,9 @@ const Search = () => {
         width: 100%;
       `}
     >
-      <Input
+      <InputSearch
         type={`text`}
-        placeholder={`جستوجو...`}
+        placeholder={`جستجو...`}
         onChange={(value) => handleOnChange('search', value)}
       />
 
@@ -32,11 +32,11 @@ const Search = () => {
         className={css`
           width: 4rem;
           position: absolute;
-          top: 0;
+          top: 10%;
           right: 0;
         `}
       >
-        <Button primary>جستوجو</Button>
+        <Button primary>جستجو</Button>
       </div>
     </div>
   )

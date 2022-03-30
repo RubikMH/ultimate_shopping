@@ -3,9 +3,9 @@ import { css } from '@emotion/css'
 import { useTheme } from '@emotion/react'
 import Input from '../Input'
 
-const InputText = ({ type, placeholder, style }) => {
+const InputText = (props) => {
   const theme = useTheme()
-  return <Input type={type} placeholder={placeholder} style={style} />
+  return <Input type="text" {...props} />
 }
 
 export default InputText

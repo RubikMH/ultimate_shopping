@@ -8,8 +8,9 @@ import { useState, useEffect } from 'react'
 import InputPassword from '../../components/InputPassword'
 import H2 from '../../components/Typography/H2'
 import Space from '../../components/Typography/Space/Space'
+import InputText from '../../components/InputText/Index'
 
-const Login = () => {
+const SingUp = () => {
   const [formValue, setFormValue] = useState({})
   const handleOnChange = (name, value) => {
     setFormValue({
@@ -37,7 +38,7 @@ const Login = () => {
           `}
         />
         <Space />
-        <H2>به تاپ مارکت خوش آمدید</H2>
+        <H2>در تاپ مارکت ثبت نام کنید</H2>
         <Space />
         <form
           onSubmit={handelSubmit}
@@ -45,6 +46,12 @@ const Login = () => {
             width: 20%;
           `}
         >
+          <InputText
+            placeholder={`نام کامل خود را وارد کنید ... `}
+            onChange={(value) => handleOnChange('ّfullName', value)}
+            required
+          />
+          <Space />
           <InputEmail
             placeholder={`ایمیل خود را وارد کنید ... `}
             onChange={(value) => handleOnChange('email', value)}
@@ -65,4 +72,4 @@ const Login = () => {
     </>
   )
 }
-export default Login
+export default SingUp

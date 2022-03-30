@@ -1,7 +1,14 @@
 import Head from 'next/head'
 import { css, cx } from '@emotion/css'
+import LayoutHome from '../Containers/LayoutHome'
+import { GET_LIST_POST_ACTION } from '../actions'
+import PostList from '../components/PostList'
+import { v4 as uuidv4 } from 'uuid'
+import 'swiper/css'
 
-const Home = () => {
+const Home = (props) => {
+  const { post } = props
+
   return (
     <div>
       <Head>
@@ -12,9 +19,18 @@ const Home = () => {
           padding: 20px;
         `}
       >
-        home
+        <LayoutHome></LayoutHome>
       </div>
     </div>
   )
 }
 export default Home
+
+Home.getInitialProps = async ({ reduxStore }) => {
+  await reduxStore.dispatch(GET_LIST_POST_ACTION())
+  const { post } = await reduxStore.getState()
+  console.log('post', post.post)
+  return {
+    post: post.post,
+  }
+}

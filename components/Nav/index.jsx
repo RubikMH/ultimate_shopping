@@ -18,7 +18,7 @@ const Nav = () => {
       <NextLink href={`/`}>
         <HyperLi>خانه</HyperLi>
       </NextLink>
-      <NextLink href={`/product`}>
+      <NextLink href={`/products`}>
         <HyperLi>محصولات</HyperLi>
       </NextLink>
       <NextLink href={`/blog`}>

@@ -56,7 +56,9 @@ const Header = () => {
             width: 4rem;
           `}
         >
-          <Button>ثبت نام</Button>
+          <NextLink href={`/singUp`}>
+            <Button>ثبت نام</Button>
+          </NextLink>
         </div>
       </div>
     </header>

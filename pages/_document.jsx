@@ -24,7 +24,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head />
-        <body>
+        <body className="font-body">
           <Reset />
           <Main />
           <NextScript />
