@@ -47,7 +47,7 @@ const Post = ({ post }) => {
           <div className=" w-full flex flex-row justify-center h-full items-end">
             {post.fields.exist ? (
               <button
-                className={`w-1/4 bg-slate-300 h-8 transition-all duration-150 hover:bg-slate-600 hover:text-white rounded-md  `}
+                className={`w-1/4 tablet:w-2/3 mobile:w-full bg-slate-300 h-8 transition-all duration-150 hover:bg-slate-600 hover:text-white rounded-md  `}
               >
                 افزودن به سبد خرید
               </button>

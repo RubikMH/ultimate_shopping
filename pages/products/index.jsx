@@ -26,6 +26,7 @@ export default Products
 
 Products.getInitialProps = async ({ reduxStore }) => {
   const { post } = await reduxStore.getState()
+  console.log('post', post.post)
   return {
     post: post.post,
   }
